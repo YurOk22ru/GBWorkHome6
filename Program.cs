@@ -1,4 +1,7 @@
-﻿int[,] CreateTriangle(int row)
+﻿//Доделать ввод многочлена,
+//Сделать вывод только нечетных коэффициентов у треугольника распечатайте хотя бы 120 строк
+
+int[,] CreateTriangle(int row)
 {
   int[,] triangle = new int[row, row];
   for (int i = 0; i < row; i++)
@@ -25,8 +28,14 @@ void PrintTriangle(int[,] triangle)
   {
     for (int j = 0; j < row; j++)
     {
-      if (triangle[i, j] != 0)
-        Console.Write($"{triangle[i, j],4}");
+      if (triangle[i, j] %2 !=0)
+        //Console.Write($"{triangle[i, j],4}");
+        Console.Write("*");
+      else
+      {
+        System.Console.Write(" ");
+      }  
+
     }
     Console.WriteLine();
   }
@@ -42,7 +51,7 @@ int[] GetKoeff(int[,] tr, int pow)
   return row;
 }
 
-int[,] tr = CreateTriangle(10);
+int[,] tr = CreateTriangle(120);
 PrintTriangle(tr);
 int[] koeff = GetKoeff(tr, 2);
 
